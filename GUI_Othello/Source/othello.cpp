@@ -4,23 +4,27 @@
 // Description: othello game class implementation
 
 /*===================================================================
-Comments and Changelog:
+Comments && Changelog:
 
 Aaron, 3/29: Added comments/changelog etc.
 
-Aaron, 3/31: Greatly expanded game loop and piece placement checks, quashed bugs, tried to account for the million and one ways a player can break the game with bad I/O.
+Aaron, 3/31: Greatly expanded game loop && piece placement checks, quashed bugs, tried to account for the million && one ways a player can break the game with bad I/O.
 
 Aaron, 4/24: Quashed a serious bug where chips were flipping when they shouldn't after wanting to redo a move.
 
 ====================================================================*/
 
+#include "Clanlib_and_flags.h"
 #include <iostream>
 #include <cstdlib> // exit()
 #include <utility>
+#include <Wincon.h>
+#include <string>
 #include "othello.h"
 #include "board.h"
 #include "movenode.h"
 #include "ArtificialIntelligence.h"
+#include "othelloWindow.h"
 
 // #define DEBUG
 
@@ -41,6 +45,7 @@ void Othello::playGame()
 	bool validInput = false;
 	ArtificialIntelligence aiPlayer;
 
+	othelloWindow window;
 	initializeBoard();
 
 	while (!validInput)
@@ -52,7 +57,7 @@ void Othello::playGame()
 		cin >> currentPlayer;
 		currentPlayer = toupper(currentPlayer);
 
-		if(currentPlayer == 's' or currentPlayer == 'S')
+		if(currentPlayer == 's' || currentPlayer == 'S')
 		{
 		    cout << "System: Goodbye!" << endl;
 		    exit(EXIT_SUCCESS);
@@ -186,7 +191,7 @@ void Othello::playerTurn(char & currentPlayer, bool & running)
 	    cout <<"System: Write the letter of the (x-axis) position you want to play on!" << endl;
 	    cin >> xMove;
 
-	    if(xMove == 's' or xMove == 'S')
+	    if(xMove == 's' || xMove == 'S')
 	    {
 		cout << "System: Goodbye!" << endl;
 		exit(EXIT_SUCCESS);
@@ -195,7 +200,7 @@ void Othello::playerTurn(char & currentPlayer, bool & running)
 	    cout << "System: Write the number of the (y-axis) position you want to play on!" << endl;
 	    cin >> yMove;
 
-	    if(yMove == 's' or yMove == 'S')
+	    if(yMove == 's' || yMove == 'S')
 	    {
 		cout << "System: Goodbye!" << endl;
 		exit(EXIT_SUCCESS);
@@ -266,7 +271,7 @@ void Othello::playerTurn(char & currentPlayer, bool & running)
 
 	ans = 'Y';
 
-	cout << "System: Placing a "<< currentPlayer <<" piece at " << xMove << ", " << yMove << " and flipping pieces..."<< endl;
+	cout << "System: Placing a "<< currentPlayer <<" piece at " << xMove << ", " << yMove << " && flipping pieces..."<< endl;
 	gameboard.placePiece(currentPlayer, xMove, yMove);
 
 	endOfTurn(currentPlayer, running);
@@ -280,7 +285,7 @@ void Othello::endOfTurn(char & currentPlayer, bool & running)
         running = gameboard.updateBoard();
 
         //Normal turn tradeoff
-        // black just went and white has a move to make.
+        // black just went && white has a move to make.
         if (currentPlayer == 'B' && gameboard.whiteHasMove())
         {
             currentPlayer = 'W';

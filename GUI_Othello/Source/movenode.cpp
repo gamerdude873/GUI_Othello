@@ -2,8 +2,8 @@
 //@author Garrett Sparks (gsparks)
 
 //@ Implementation of ADT MoveNode
-//@    data object is an item representing an x and y location on the board
-//@    data structures: integers for the location and a list of pointers to subsequent moves
+//@    data object is an item representing an x && y location on the board
+//@    data structures: integers for the location && a list of pointers to subsequent moves
 //@    operations: create, destroy
 
 #include "movenode.h"

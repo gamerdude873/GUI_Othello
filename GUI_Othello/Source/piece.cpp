@@ -19,6 +19,10 @@ Aaron, 3/29: Added error padding (invalid piece color), added flip, isHealthy, D
 
 using namespace std;
 
+Piece::~Piece()
+{
+}
+
 Piece::Piece(char color, int xLocation, int yLocation) {
 //    if (color != 'w' && color != 'b') {
 //        throw color;
@@ -37,9 +41,6 @@ Piece::Piece() {
     mColor = 'O';
     mXLocation = 0;
     mYLocation = 0;
-}
-
-Piece::~Piece() {
 }
 
 char Piece::getColor() {
@@ -84,7 +85,7 @@ int Piece::getYLocation() {
 bool Piece::isHealthy()
 {
     // health checkup for program integrity. We can't have a piece that isn't B, W, or O or N!
-    if(mColor != 'W' and mColor != 'B' and mColor != 'O' and mColor != 'N' and mColor != 'n' and mColor != 'b' and mColor != 'w')
+    if(mColor != 'W' && mColor != 'B' && mColor != 'O' && mColor != 'N' && mColor != 'n' && mColor != 'b' && mColor != 'w')
     {
         mColor = 'O';
         if(mColor != 'O')

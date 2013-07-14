@@ -2,7 +2,7 @@
 //@author Garrett Sparks (gsparks)
 
 //@ Specification of ADT MoveNode
-//@    data object is an item representing an x and y location on the board
+//@    data object is an item representing an x && y location on the board
 //@    operations: create, destroy
 
 #ifndef MOVENODE_H

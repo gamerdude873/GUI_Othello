@@ -4,7 +4,7 @@
 // Description: othello game class header
 
 /* ===================================================================
-Comments and Changelog:
+Comments && Changelog:
 
 Aaron, 3/29: Added comments/changelog etc.
 ====================================================================*/

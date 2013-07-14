@@ -4,7 +4,7 @@
 // Description: Board for othello class implementation
 
 /*===================================================================
-Comments and Changelog:
+Comments && Changelog:
 
 Aaron, 3/29: Added comments/changelog etc.
 
@@ -232,7 +232,7 @@ int Board::calcHeuristic(char playerColor, int xCoord, int yCoord)
 	}
 
 	// we really want to pay attention also to what the opponent might be able to do on the next move.
-	// These check for the opponent going to edges and corners.
+	// These check for the opponent going to edges && corners.
 
 	for(x = 1; x != 6; x++)
 	{
@@ -294,7 +294,7 @@ int Board::calcHeuristic(char playerColor, int xCoord, int yCoord)
 
 void Board::setColorAtLocation(char color, int xIntCoord, int yIntCoord)
 {
-    //Manually change a slot to empty, white or black.
+    //Manually change a slot to empty, white || black.
 
     bool success = false;
     success = mPiecesList[xIntCoord][yIntCoord].setColor(color);
@@ -873,7 +873,7 @@ bool Board::lookNW(int xMove, int yMove, char currentPlayer, bool doFlip, char f
 
 bool Board::inBounds(int xMove, int yMove)
 {
-    if(xMove > 7 or xMove < 0 or yMove > 7 or yMove < 0)
+    if(xMove > 7 || xMove < 0 || yMove > 7 || yMove < 0)
     {
         return false;
     }

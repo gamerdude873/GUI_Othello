@@ -53,15 +53,16 @@ MoveNode ArtificialIntelligence::chooseNextMove(Board & gameboard)
     #ifdef TIME
     time(&start);
     #endif // TIME
-
+/*
     //create an alarm signal to process the SIGALRM return
     signal(SIGALRM, catchAlarm);
     alarm(85);  //start an alarm that lasts n seconds
 
+*/
     //builds a pruned tree
 	buildMoveTree(mRootNode, playerColor, maxDepth, 0, gameboard, NEG_INFINITY, INFINITY, decision);
 
-  	alarm(0);  //cancel the alarm after the buildMoveTree is complete
+  	// alarm(0);  //cancel the alarm after the buildMoveTree is complete
 	panicFlag = false;
 
 	if(decision == NULL)
@@ -255,7 +256,7 @@ int ArtificialIntelligence::buildMoveTree(MoveNode * lastMove, char player, int 
 
                     }
 
-					if((move != decision) && (move != mRootNode))// keep decisions and the root, destroy everything else as we come back up.
+					if((move != decision) && (move != mRootNode))// keep decisions && the root, destroy everything else as we come back up.
 
 
 					{
