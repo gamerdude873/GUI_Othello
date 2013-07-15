@@ -24,6 +24,11 @@ othelloWindow::othelloWindow()
 	CL_Draw::texture(gc, windowShape);
 	gc.reset_texture(0);
 	
+	blackChip = CL_Sprite(gc, "chip", &resources);
+	whiteChip = CL_Sprite(gc, "chip", &resources);
+	blackChip.set_frame(0);
+	whiteChip.set_frame(1);
+
 	window.flip();
 	CL_KeepAlive::process();
 
@@ -40,30 +45,40 @@ othelloWindow::othelloWindow()
 	#endif
 }
 
-void othelloWindow::initializeBoard()
+bool othelloWindow::chooseColor()
 {
+	//open up a prompt using GUI-based choice of a white chip or a black chip.
+	//under construction - Sprites and text are displaying correctly, but now interaction needs to occur.
+
 	bool done = false;
 
 	while(!done)
 	{
 		if(keyboard.get_keycode(CL_KEY_ESCAPE) == true)
 		{
-			done = true;
+			// probably throw in an exit dialog here...
+			exit(EXIT_SUCCESS);
 		}
 
 		font.draw_text(gc, 146, 60, "PLAYER, CHOOSE YOUR COLOR:");
+		blackChip.draw(gc, 150, 252);
+		whiteChip.draw(gc, 490, 252);
+		font.draw_text(gc, 200, 580, "BLACK GOES FIRST");
+
+		//Dialogs and masks for choosing a color, and loop breaks go here...
 
 		window.flip();
 		CL_KeepAlive::process();
 		CL_System::sleep(10);
 	}
+
+	// default
+	return true;
 }
 
-bool othelloWindow::chooseColor()
+void othelloWindow::initializeBoard()
 {
-	//Should open up a prompt using GUI-based choice of a white chip or a black chip.
-
-	return true;
+	//place the first pieces on the board I suppose... but maybe I can handle this in othello class
 }
 
 void othelloWindow::on_window_close()

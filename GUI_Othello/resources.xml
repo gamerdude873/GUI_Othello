@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 -<resources>	
 	<texture file="Resources/board.png" name="board"/>
+  
+  <sprite name="chip" base_angle="180">
+
+    <image fileseq="Resources/chip_.png"	start_index="0" skip_index="1" leading_zeroes="0"/>
+    <translation origin="center"/>
+    <rotation origin="center"/>
+    <animation speed="100" loop ="no" pingpong="no" />
+    <scale x=".5" y=".5" />
+    
+  </sprite>
+
 </resources>

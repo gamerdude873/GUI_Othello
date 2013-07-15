@@ -16,6 +16,8 @@ private:
 	CL_ResourceManager resources;
 	CL_Font_System font;
 	CL_DisplayWindow window;
+	CL_Sprite blackChip;
+	CL_Sprite whiteChip;
 
 public:
 	othelloWindow();
